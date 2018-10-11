@@ -61,7 +61,7 @@ function registerUser(username, password, type){
                 window.open("admin/admin-home.html","_self");
 
             }else{
-                window.open("admin/home.html","_self");
+                window.open("users/home.html","_self");
             }          
             
         }
