@@ -15,11 +15,12 @@
                 <h4>We are</h4>
                 <h3>Fast Food Fast</h3>
                 <select class="custom-input" name="account" id="account">
-                        <option value="Admin">Administrator</option>
-                        <option value="Customer">Customer</option>
+                        <option value="ADMIN">Administrator</option>
+                        <option value="CUSTOMER">Customer</option>
                 </select><br>
-                <input class="custom-input top-margin" type="text" placeholder="Username">
-                <input class="custom-input top-margin" type="password" placeholder="Password">
+                <input id="username" class="custom-input top-margin" type="text" placeholder="Username">
+                <input id="password" class="custom-input top-margin" type="password" placeholder="Password">
+                <input id="login" class="custom-input-button top-margin" type = "button" value="Login">
                 <div class="social">
                     <h4>login With:</h4>
                     <img class="login-img" src="img/logo/google.png" alt="google">
@@ -28,6 +29,9 @@
                 </div>
             </div> 
     </div>
-       
+    <div id="modal-item" class="modal">        
+        
+    </div>
+    <script src="js/login.js"></script> 
 </body>
 </html>
