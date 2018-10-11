@@ -54,10 +54,7 @@ function registerAdmin(username, email, phone, vendor, local, password){
           if(result.status == 0){
               let output =`
               <div class="modal-content">
-                <span id="close_modal" class="close">&times;</span>
                 <h3 style="color:red;"> ${result.response}</h3>
-                <hr>
-                <p>${result.data}</p>
               </div>
               `;              
           document.getElementById("modal-item").innerHTML = output;
@@ -65,10 +62,18 @@ function registerAdmin(username, email, phone, vendor, local, password){
           }else{
             let output =`
             <div class="modal-content">
-              <span id="close_modal" class="close">&times;</span>
               <h3 style="color:green;"> ${result.response}</h3>
               <hr>
-              <p>${result.data}</p>
+              <h4>Your registration details</h4>
+              <p><strong>Username</strong> : ${result.data.name}</p>
+              <p><strong>Vendor ID</strong> : ${result.data.vendor_id}</p>
+              <p><strong>Email</strong> : ${result.data.email}</p>
+              <p><strong>Phone Number</strong> : ${result.data.phone_no}</p>
+              <p><strong>Vendor Name</strong> : ${result.data.vendor_name}</p>
+              <p><strong>Location</strong> : ${result.data.location}</p>
+              <p><strong>Registration Date</strong> : ${result.data.reg_date}</p>
+              
+              <a href="login.html"><input class="custom-input-button top-margin" type ="button" value="Login"></a>              
             </div>
             `;                
           document.getElementById("modal-item").innerHTML = output;  
