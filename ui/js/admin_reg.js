@@ -19,11 +19,23 @@ function adminDetails(){
             registerAdmin(username, email, phone, vendor, local, pass_original)
 
         }else{
-            alert("Please ensure all fields are filled.");
+            let output =`
+            <div class="modal-content">
+              <h3 style="color:orange;"> Please ensure all fields are filled</h3>
+            </div>
+            `;              
+        document.getElementById("modal-item").innerHTML = output;
+        modal_view.style.display = "block";
 
         }
     }else{
-        alert("Your Passwords don't match");
+        let output =`
+        <div class="modal-content">
+          <h3 style="color:red;"> Your Passwords don't match</h3>
+        </div>
+        `;              
+    document.getElementById("modal-item").innerHTML = output;
+    modal_view.style.display = "block";
     }
 }
 
