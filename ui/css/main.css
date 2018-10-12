@@ -456,7 +456,7 @@ ul li:hover{
     color:  rgba(255, 5, 5);
 }
 .running-txt {
-    color: red;
+    color: rgb(13, 58, 156);
     transition: 1500ms cubic-bezier(1, 0, 0, 1);
 }
 .complete-txt {
@@ -743,4 +743,47 @@ ul li:hover{
     color: rgb(255, 0, 0);
     text-decoration: none;
     cursor: pointer;
+}
+
+.action-process {    
+    width: 100px;
+    height: 30px;
+    list-style: none;
+    float: left;
+    background-color: rgba(104, 144, 255, 0.7);  
+    line-height: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px; 
+    font-weight:100;
+    color: rgb(236, 236, 236);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border: 2px #fff solid;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.action-process:hover {
+    background-color: #fff;
+    color: rgba(104, 144, 255, 0.7);
+}
+
+
+.cancel_okay {    
+    width: 200px;
+    height: 40px;
+    list-style: none;
+    float: left;
+    background-color: rgba(134, 143, 1, 0.7);  
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px; 
+    float: right;
+    font-weight:100;
+    color: rgb(236, 236, 236);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border: 2px #fff solid;
+    border-radius: 10px;
+    margin-right: 5px;
 }
