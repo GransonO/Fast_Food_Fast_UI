@@ -156,6 +156,11 @@
         </div>
     </div>
 </div>
-
+<script>
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var get_value = url.searchParams.get("id");
+    alert(get_value);
+</script>
 </body>
 </html>

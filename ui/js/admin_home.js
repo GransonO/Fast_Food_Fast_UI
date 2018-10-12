@@ -37,7 +37,7 @@ function getAdminItems(){
           modal_view.style.display = "block";    
           }else{     
             console.log(result);
-            let output = "";
+            let output = `<h2>All Foods</h2>`;
             result.data.items_list.forEach(function(item) {
             output +=`
                     <div class="home-item" style="float:left;">
