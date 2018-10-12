@@ -20,8 +20,7 @@ document.getElementById("item-by").innerHTML="by " + vendor_name;
 
 document.getElementById("order_now").addEventListener("click",orderItems);
 
-function orderItems(){    
-       alert(user_token);
+function orderItems(){
         let output =`
         <div class="modal-content">
             <h3 style="color:orange;"> Ordering :</h3>
