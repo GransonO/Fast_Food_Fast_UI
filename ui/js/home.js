@@ -42,7 +42,7 @@ function getAllItems(){
                     <img class="food-img" src="../img/foods/chinese.jpg" alt="Food Item" width=300>
                     <h3 class="text-right">Ksh ${item.price}</h3>
                     <h3 class="food-name">${item.item_name}</h3>
-                    <a href="order.html?id=${item.item_id}"><img class="cart" src="../img/cart.png" alt="cart" width=50></a>
+                    <a href="order.html?id=${item.item_id}&vid=${item.vendor_id.vendor_id}&price=${item.price}&name=${item.item_name}&vendor_name=${item.vendor_id.vendor_name}&item_details=${item.details}"><img class="cart" src="../img/cart.png" alt="cart" width=50></a>
                     <h4 class="text-left"> by ${item.vendor_id.vendor_name}</h4>
                 </div>
                 `;

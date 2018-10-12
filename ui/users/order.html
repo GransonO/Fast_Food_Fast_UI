@@ -14,88 +14,15 @@
     </div>
     <nav>        
         <ul class="to-right">
-            <button class="okay">Order Now!</button> 
+            <button id="order_now" class="okay">Order Now!</button> 
             <button class="cancel">Cancel</button>   
          </ul>
     </nav>
 <div class="order-content">
     <div class="order-history">
-            <h2>Currently Selected Items</h2> 
-        <table>
-                <th> 
-                    #
-                </th>
-                <th> 
-                    Details
-                </th>
-                <th> 
-                    Action
-                </th>            
-                <tr>
-                    <td class="items-table">
-                        <img class="history-img" src="../img/foods/chinese.jpg" alt="user">
-                    </td>
-                    <td class="items-table history-details">                    
-                        <h4>Chinese Food</h4>
-                        <p> From Galitos</p>
-                    </td>
-                    <td class="items-table history-details">
-                        <button class="action-okay">Confirm</button>
-                        <button class="action-cancel">Remove</button>
-                    </td>
-                </tr>           
-                <tr>
-                    <td class="items-table">
-                        <img class="history-img" src="../img/foods/chinese.jpg" alt="user">
-                    </td>
-                    <td class="items-table history-details">                    
-                        <h4>Chinese Food</h4>
-                        <p> From Galitos</p>
-                    </td>
-                    <td class="items-table history-details">
-                            <button class="action-okay">Confirm</button>
-                            <button class="action-cancel">Remove</button>
-                    </td>
-                </tr>           
-                <tr>
-                    <td class="items-table">
-                        <img class="history-img" src="../img/foods/chinese.jpg" alt="user">
-                    </td>
-                    <td class="items-table history-details">                    
-                        <h4>Chinese Food</h4>
-                        <p> From Galitos</p>
-                    </td>
-                    <td class="items-table history-details">
-                            <button class="action-okay">Confirm</button>
-                            <button class="action-cancel">Remove</button>
-                    </td>
-                </tr>           
-                <tr>
-                    <td class="items-table">
-                        <img class="history-img" src="../img/foods/chinese.jpg" alt="user">
-                    </td>
-                    <td class="items-table history-details">                    
-                        <h4>Chinese Food</h4>
-                        <p> From Galitos</p>
-                    </td>
-                    <td class="items-table history-details">
-                            <button class="action-okay">Confirm</button>
-                            <button class="action-cancel">Remove</button>
-                    </td>
-                </tr>           
-                <tr>
-                    <td class="items-table">
-                        <img class="history-img" src="../img/foods/chinese.jpg" alt="user">
-                    </td>
-                    <td class="items-table history-details">                    
-                        <h4>Chinese Food</h4>
-                        <p> From Galitos</p>
-                    </td>
-                    <td class="items-table history-details">
-                            <button class="action-okay">Confirm</button>
-                            <button class="action-cancel">Remove</button>
-                    </td>
-                </tr>
+            <h2>All Selected Items</h2> 
+        <table id="new-table">            
+                         
          </table>
     </div>
     <div class="ordered-item">
@@ -105,17 +32,10 @@
                 <img src="../img/foods/chinese.jpg" alt="ordered item">    
             </div>
              <div class="ordered-more-details">
-                <h3>Ksh 300.00</h3>
-                <h4>Chinese Noodles</h4>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Reprehenderit dolore deserunt incidunt. Enim atque quibusdam
-                    quae soluta quia. Quisquam alias voluptate porro dolore sapiente
-                    sed perspiciatis dolorem ut?
-                </p>
-                <h5>
-                    by Galitos Foods.
-                </h5>
+                <h3 id="item-price"></h3>
+                <h4 id="item-name"></h4>
+                <p id="item-details"></p>
+                <h5 id="item-by"></h5>
             </div>
         </div>
         <hr>
@@ -156,11 +76,9 @@
         </div>
     </div>
 </div>
-<script>
-    var url_string = window.location.href;
-    var url = new URL(url_string);
-    var get_value = url.searchParams.get("id");
-    alert(get_value);
-</script>
+<div id="modal-item" class="modal">    
+        
+</div>
+<script src="../js/user_orders.js"></script>
 </body>
 </html>
