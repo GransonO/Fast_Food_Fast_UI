@@ -16,7 +16,7 @@ function getAdminItems(){
         mode : "cors" 
     }
 
-    fetch("http://127.0.0.1:5000/admin/menu",options)
+    fetch("http://fast-food-fast-c4.herokuapp.com/admin/menu",options)
     .then((response) => response.json())
       .then((result) => {
           if(result.data.mess == 0){
@@ -83,7 +83,7 @@ function deleteItemID(id){
         mode : "cors" 
     }
 
-    fetch("http://127.0.0.1:5000/admin/menu/"+id,options)
+    fetch("http://fast-food-fast-c4.herokuapp.com/admin/menu/"+id,options)
     .then((response) => response.json())
       .then((result) => {
           if(result.status == 0){
@@ -143,7 +143,7 @@ function addMenuItemsToTable(name,price,detail){
         }),
         mode: "cors" 
     }
-    fetch("http://127.0.0.1:5000/menu",options)
+    fetch("http://fast-food-fast-c4.herokuapp.com/menu",options)
     .then((response) => response.json())
       .then((result) => {
           if(result.status == 0){
