@@ -78,13 +78,13 @@
                             <p>10-09-2018</p>
                         </td>
                     </tr>  
-             </table>
+            </table>
         </div>
         <div class="admin-order-history">
-                <h2>Placed Orders</h2> 
+                <h2>Placed Orders (NEW)</h2> 
                 <h2>Since : </h2>
                 <input class="admin-custom-input" type="date" name="since" id="since"> 
-            <table>
+            <table id="new_orders">
                     <th> 
                         #
                     </th>
@@ -93,63 +93,9 @@
                     </th>
                     <th> 
                         Status
-                    </th>            
-                    <tr>
-                        <td class="items-table">
-                            <img class="admin-history-img" src="../img/foods/chinese.jpg" alt="user">
-                        </td>
-                        <td class="items-table admin-history-details">                    
-                            <h4>Chinese Food</h4>
-                            <p> by Granson</p>
-                            <p> Nairobi CBD</p>
-                        </td>
-                        <td class="items-table admin-history-details">
-                            <button class="action-okay">Confirm</button>
-                            <button class="action-cancel">Reject</button>
-                        </td>
-                    </tr>            
-                    <tr>
-                        <td class="items-table">
-                            <img class="admin-history-img" src="../img/foods/chinese.jpg" alt="user">
-                        </td>
-                        <td class="items-table admin-history-details">                    
-                            <h4>Chinese Food</h4>
-                            <p> by Granson</p>
-                            <p> Nairobi CBD</p>
-                        </td>
-                        <td class="items-table admin-history-details">
-                                <button class="action-okay">Confirm</button>
-                                <button class="action-cancel">Reject</button>
-                            </td>
-                    </tr>            
-                    <tr>
-                        <td class="items-table">
-                            <img class="admin-history-img" src="../img/foods/chinese.jpg" alt="user">
-                        </td>
-                        <td class="items-table admin-history-details">                    
-                            <h4>Chinese Food</h4>
-                            <p> by Granson</p>
-                            <p> Nairobi CBD</p>
-                        </td>
-                        <td class="items-table admin-history-details">
-                                <button class="action-okay">Confirm</button>
-                                <button class="action-cancel">Reject</button>
-                            </td>
-                    </tr>            
-                    <tr>
-                        <td class="items-table">
-                            <img class="admin-history-img" src="../img/foods/chinese.jpg" alt="user">
-                        </td>
-                        <td class="items-table admin-history-details">                    
-                            <h4>Chinese Food</h4>
-                            <p> by Granson</p>
-                            <p> Nairobi CBD</p>
-                        </td>
-                        <td class="items-table admin-history-details">
-                                <button class="action-okay">Confirm</button>
-                                <button class="action-cancel">Reject</button>
-                            </td>
-                    </tr>  
+                    </th>
+                    <!-- Orders added here --> 
+                    
              </table>
         </div>
         <div class="admin-order-history">
@@ -226,5 +172,9 @@
         </div>
 </div>
 
+<div id="modal-item" class="modal">    
+        
+</div>
+<script src="../js/admin_orders.js"></script>
 </body>
 </html>
