@@ -20,84 +20,35 @@
     </nav>
 <div class="home-content">
 
-    <div class="all-items My-Items">
+    <div  id="tr" class="all-items My-Items">
         <h2>My Foods</h2>
-        <table class="home-container">
-                <tr>
-                        <td>
-                            <div class="home-item">
-                                <img class="food-img" src="../img/foods/chinese.jpg" alt="Food Item" width=300>
-                                <h3 class="text-right">Ksh 300.00</h3>
-                                <h3 class="food-name">Chinese Delicasy</h3>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur 
-                                    adipisicing elit. Cupiditate sed quas totam, 
-                                    eius, dolor, dicta beatae vel deserunt debitis 
-                                    deleniti accusamus quis corporis neque quod 
-                                    excepturi laudantium! Tempore, neque quis.
-                                </p>
-                                <img class="delete" src="../img/logo/delete.png" alt="delete">
-                                <img class="edit" src="../img/logo/edit.png" alt="edit">
-                            </div>
-                        </td>
-                        <td>
-                                <div class="home-item">
-                                        <img class="food-img" src="../img/foods/chinese.jpg" alt="Food Item" width=300>
-                                        <h3 class="text-right">Ksh 300.00</h3>
-                                        <h3 class="food-name">Chinese Delicasy</h3>
-                                        <p>
-                                            Lorem ipsum, dolor sit amet consectetur 
-                                            adipisicing elit. Cupiditate sed quas totam, 
-                                            eius, dolor, dicta beatae vel deserunt debitis 
-                                            deleniti accusamus quis corporis neque quod 
-                                            excepturi laudantium! Tempore, neque quis.
-                                        </p>
-                                        <img class="delete" src="../img/logo/delete.png" alt="delete">
-                                        <img class="edit" src="../img/logo/edit.png" alt="edit">
-                                    </div>
-                        </td>
-                        <td>
-                                <div class="home-item">
-                                        <img class="food-img" src="../img/foods/chinese.jpg" alt="Food Item" width=300>
-                                        <h3 class="text-right">Ksh 300.00</h3>
-                                        <h3 class="food-name">Chinese Delicasy</h3>
-                                        <p>
-                                            Lorem ipsum, dolor sit amet consectetur 
-                                            adipisicing elit. Cupiditate sed quas totam, 
-                                            eius, dolor, dicta beatae vel deserunt debitis 
-                                            deleniti accusamus quis corporis neque quod 
-                                            excepturi laudantium! Tempore, neque quis.
-                                        </p>
-                                        <img class="delete" src="../img/logo/delete.png" alt="delete">
-                                        <img class="edit" src="../img/logo/edit.png" alt="edit">
-                                    </div>
-                        </td>
-                    </tr>
-        </table>   
     </div>
     <div class="comments new-item">
                 <h2>Add New Item</h2>                
                 <img src="../img/foods/chinese.jpg" alt="New Image">
                 <br> 
                 <br> 
-                <select class="admin-custom-input">
+                <!--select id="item_cat" class="admin-custom-input">
                         <option value="#">Select food category</option>
                         <option value="Breakfast">Breakfast</option>
                         <option value="Lunch">Lunch</option>
                         <option value="Dinner">Dinner</option>
                         <option value="Munchies">Munchies</option>
                         <option value="Drinks">Drinks</option>
-                </select>              
-                <input class="admin-custom-input" type="text" name="Food" placeholder="Food Name">
+                </select -->              
+                <input id="name" class="admin-custom-input" type="text" name="Food" placeholder="Food Name">
                 <br>                             
-                <input class="admin-custom-input" type="text" name="price" placeholder="Food Price">
+                <input id="price" class="admin-custom-input" type="text" name="price" placeholder="Food Price">
                 <br>                             
-                <textarea class="admin-custom-textarea" type="text" name="Food" placeholder="Brief detail of the food"></textarea>
+                <textarea id="detail" class="admin-custom-textarea" type="text" name="detail" placeholder="Brief detail of the food"></textarea>
                 <br>
-                <button class="admin-okay">Submit</button>
-                <button class="admin-cancel">Cancel</button>
+                <button id="submit" class="admin-okay">Submit</button>
         </div>
 </div>
+    <div id="modal-item" class="modal">        
+        
+    </div>
+    <script src="../js/admin_home.js"></script>
 
 </body>
 </html>
