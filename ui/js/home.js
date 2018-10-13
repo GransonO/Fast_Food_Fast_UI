@@ -12,7 +12,7 @@ function getAllItems(){
         mode : "cors" 
     }
 
-    fetch("http://fast-food-fast-c4.herokuapp.com/menu",options)
+    fetch("https://fast-food-fast-c4.herokuapp.com/menu",options)
     .then((response) => response.json())
       .then((result) => {
           if(result.data.mess == 0){
