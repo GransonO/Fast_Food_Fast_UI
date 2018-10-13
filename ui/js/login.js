@@ -41,7 +41,7 @@ function registerUser(username, password, type){
         mode: "cors" 
     }
 
-    fetch("http://fast-food-fast-c4.herokuapp.com/auth/login",options)
+    fetch("https://fast-food-fast-c4.herokuapp.com/auth/login",options)
     .then((response) => response.json())
       .then((result) => {
           if(result.status == 0){
