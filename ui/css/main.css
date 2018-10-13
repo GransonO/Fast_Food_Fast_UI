@@ -117,9 +117,6 @@ a{
     transition: 1000ms;
 }
 
-.food-img:hover {
-    width: 302px;
-}
 .hungry{
     margin-top: 5%;
 }
@@ -173,7 +170,7 @@ ul li:hover{
 
 .home-container {
     text-align: center;
-    width: 100%;
+    width: 80%;
 }
 
 .order-item {
@@ -185,9 +182,8 @@ ul li:hover{
 
 .home-item {
     margin-top: 5%;
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 300px;
+    margin-left: 7%;
+    width: 270px;
 }
 
 .order-content {
@@ -314,6 +310,7 @@ ul li:hover{
     padding: 2px;
     float: right;
     text-align: center;
+    transition: 500ms;
 }
 
 .edit {
@@ -323,13 +320,14 @@ ul li:hover{
     padding: 2px;
     float: left;
     text-align: center;
+    transition: 500ms;
 }
 
 .delete:hover {
-    height: 45px;
+    transform: rotateX(360deg)
 }
 .edit:hover {
-    height: 45px;
+    transform: rotateX(360deg);
 }
 .My-Items {
     padding: 10px;
