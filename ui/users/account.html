@@ -23,81 +23,8 @@
             <h2>Orders History</h2> 
             <h2>Since : </h2>
             <input class="custom-input" type="date" name="since" id="since"> 
-        <table>
-                <th> 
-                    #
-                </th>
-                <th> 
-                    Details
-                </th>
-                <th> 
-                    Status
-                </th>            
-                <tr>
-                    <td class="items-table">
-                        <img class="history-img" src="../img/foods/chinese.jpg" alt="user">
-                    </td>
-                    <td class="items-table history-details">                    
-                        <h4>Chinese Food</h4>
-                        <p> From Galitos</p>
-                    </td>
-                    <td class="items-table history-details">
-                        <h4 class="running-txt">Running</h4>
-                        <p>10-09-2018</p>
-                    </td>
-                </tr>           
-                <tr>
-                    <td class="items-table">
-                        <img class="history-img" src="../img/foods/chinese.jpg" alt="user">
-                    </td>
-                    <td class="items-table history-details">                    
-                        <h4>Chinese Food</h4>
-                        <p> From Galitos</p>
-                    </td>
-                    <td class="items-table history-details">
-                        <h4 class="complete-txt">Complete</h4>
-                        <p>10-09-2018</p>
-                    </td>
-                </tr>           
-                <tr>
-                    <td class="items-table">
-                        <img class="history-img" src="../img/foods/chinese.jpg" alt="user">
-                    </td>
-                    <td class="items-table history-details">                    
-                        <h4>Chinese Food</h4>
-                        <p> From Galitos</p>
-                    </td>
-                    <td class="items-table history-details">
-                        <h4 class="complete-txt">Complete</h4>
-                        <p>10-09-2018</p>
-                    </td>
-                </tr>           
-                <tr>
-                    <td class="items-table">
-                        <img class="history-img" src="../img/foods/chinese.jpg" alt="user">
-                    </td>
-                    <td class="items-table history-details">                    
-                        <h4>Chinese Food</h4>
-                        <p> From Galitos</p>
-                    </td>
-                    <td class="items-table history-details">
-                        <h4 class="complete-txt">Complete</h4>
-                        <p>10-09-2018</p>
-                    </td>
-                </tr>           
-                <tr>
-                    <td class="items-table">
-                        <img class="history-img" src="../img/foods/chinese.jpg" alt="user">
-                    </td>
-                    <td class="items-table history-details">                    
-                        <h4>Chinese Food</h4>
-                        <p> From Galitos</p>
-                    </td>
-                    <td class="items-table history-details">
-                        <h4 class="complete-txt">Complete</h4>
-                        <p>10-09-2018</p>
-                    </td>
-                </tr>
+        <table id="all-table">            
+            <!-- All results here -->
          </table>
     </div>
     <div class="ordered-item">
@@ -165,14 +92,18 @@
 
                 <div class="profile-details">
                     <h4>Account Details</h4>
-                    <input class="custom-input" type="text" name="username" value="Granson Oyombe" placeholder="Username" disabled>
-                    <input class="custom-input" type="email" name="email" value="oyombegranson@gmail.com" placeholder="Email" disabled>
-                    <input class="custom-input" type="Location" name="location" value="Nairobi  TRM" placeholder="Location" disabled>
-                    <input class="custom-input" type="password" name="password" value="Granson Oyombe" placeholder="Password" disabled>
+                    <input class="custom-input" type="text" name="username" value="Granson Oyombe" placeholder="Username" >
+                    <input class="custom-input" type="email" name="email" value="oyombegranson@gmail.com" placeholder="Email" >
+                    <input class="custom-input" type="Location" name="location" value="Nairobi  TRM" placeholder="Location" >
+                    <input class="custom-input" type="password" name="password" value="Granson Oyombe" placeholder="Password" >
                 </div>
         </div>
     </div>
 </div>
+<div id="modal-item" class="modal">    
+        
+</div>
+<script src="../js/account.js"></script>
 
 </body>
 </html>
