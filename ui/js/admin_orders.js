@@ -5,6 +5,7 @@ const modal_view = document.getElementById("modal-item");
 
 window.addEventListener("load",getNewOrders)
 window.addEventListener("load",getProcessingCompleteOrders)
+window.addEventListener("load",getCompleteOrders)
 window.addEventListener("load",getCancelledOrders)
 
 function getNewOrders(){
@@ -148,7 +149,7 @@ function getProcessingCompleteOrders(){
                 `;
             });
             document.getElementById("processing_orders").innerHTML = output; //Append to table
-            getCompleteOrders()
+            
           }
       })
       .catch((error) => {
