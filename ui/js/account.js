@@ -24,7 +24,7 @@ function getAllOrders(){
         mode : "cors" 
     }
 
-    fetch("http://fast-food-fast-c4.herokuapp.com/users/orders",options)
+    fetch("http://127.0.0.1:5000/users/orders",options)
     .then((response) => response.json())
       .then((result) => {
           if(result.status == 0){

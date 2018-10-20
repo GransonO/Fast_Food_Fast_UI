@@ -17,7 +17,7 @@ function getNewOrders(){
         mode : "cors" 
     }
 
-    fetch("http://fast-food-fast-c4.herokuapp.com/orders/new",options)
+    fetch("http://127.0.0.1:5000/orders/new",options)
     .then((response) => response.json())
       .then((result) => {
           if(result.status == 0){
@@ -105,7 +105,7 @@ function getProcessingCompleteOrders(){
         mode : "cors" 
     }
 
-    fetch("http://fast-food-fast-c4.herokuapp.com/orders/processing",options)
+    fetch("http://127.0.0.1:5000/orders/processing",options)
     .then((response) => response.json())
       .then((result) => {
           if(result.status == 0){
@@ -203,7 +203,7 @@ function updateOrderID(order_id,status){
         mode: "cors" 
     }
 
-    fetch("http://fast-food-fast-c4.herokuapp.com/orders/"+order_id,options)
+    fetch("http://127.0.0.1:5000/orders/"+order_id,options)
     .then((response) => response.json())
       .then((result) => {
           console.log(result)
@@ -237,7 +237,7 @@ function getCompleteOrders(){
         mode : "cors" 
     }
 
-    fetch("http://fast-food-fast-c4.herokuapp.com/orders/completed",options)
+    fetch("http://127.0.0.1:5000/orders/completed",options)
     .then((response) => response.json())
       .then((result) => {
           console.log(result)
@@ -301,7 +301,7 @@ function getCancelledOrders(){
         mode : "cors" 
     }
 
-    fetch("http://fast-food-fast-c4.herokuapp.com/orders/cancelled",options)
+    fetch("http://127.0.0.1:5000/orders/cancelled",options)
     .then((response) => response.json())
       .then((result) => {
           console.log(result)

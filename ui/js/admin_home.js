@@ -6,6 +6,14 @@ const modal_view = document.getElementById("modal-item");
 
 window.addEventListener("load",getAdminItems)
 
+
+window.onclick = function(event) {
+    if (event.target == modal_view) {
+        modal_view.style.display = "none";
+    }
+}
+
+
 function getAdminItems(){
     options = {
         method: 'GET',
@@ -16,7 +24,7 @@ function getAdminItems(){
         mode : "cors" 
     }
 
-    fetch("http://fast-food-fast-c4.herokuapp.com/admin/menu",options)
+    fetch("http://127.0.0.1:5000/admin/menu",options)
     .then((response) => response.json())
       .then((result) => {
           if(result.data.mess == 0){
@@ -45,8 +53,8 @@ function getAdminItems(){
                         <h3 class="text-right">Ksh ${item.price}</h3>
                         <h3 class="food-name">${item.item_name}</h3>
                         <p>${item.details}.</p>
-                        <img id="delete" name=${item.item_id} class="delete" onclick="confirmDeleteItemID(${item.item_id})" src="../img/logo/delete.png" alt="delete">
-                        <!-- img id="edit" name=${item.item_id} class="edit" onclick="editItemID(${item.item_id})" src="../img/logo/edit.png" alt="edit"-->
+                        <img id="delete" name=${item.item_id} class="delete" onclick="confirmDeleteItemID(${item.item_id},${item.price},'${item.item_name}','${item.details}')" src="../img/logo/delete.png" alt="delete">
+                        <img id="edit" name=${item.item_id} class="edit" onclick="editItemID(${item.item_id},${item.price},'${item.item_name}','${item.details}')" src="../img/logo/edit.png" alt="edit">
                     </div>
                 `;
             });
@@ -59,14 +67,15 @@ function getAdminItems(){
       });
 }
 
-function confirmDeleteItemID(id){
+function confirmDeleteItemID(id,price,name,details){
     let modal_output= `
         <div class="modal-content">
-        <h3 style="color:red;"> Do you really want to delete this item?</h3>
-        <p>Item Id No: ${id}</p>
-        <button class="okay" onclick="dismissModal()">Cancel</button>
-        <button class="cancel" onclick="deleteItemID(${id})">Delete</button>
-
+            <h3 style="color:red;"> Do you really want to delete this item?</h3>
+            <p><strong>Item Id No: ${id}</strong></p>
+            <p><strong>Item Name : ${name}</strong></p>
+            <p><strong>Item Price : ${price}</strong></p>        
+            <button class="okay" onclick="dismissModal()">Cancel</button>
+            <button class="cancel" onclick="deleteItemID(${id})">Delete</button>
         </div>
     `;  
     document.getElementById("modal-item").innerHTML = modal_output;  
@@ -83,7 +92,7 @@ function deleteItemID(id){
         mode : "cors" 
     }
 
-    fetch("http://fast-food-fast-c4.herokuapp.com/admin/menu/"+id,options)
+    fetch("http://127.0.0.1:5000/admin/menu/"+id,options)
     .then((response) => response.json())
       .then((result) => {
           if(result.status == 0){
@@ -104,6 +113,96 @@ function deleteItemID(id){
       });
 
 }
+
+
+function editItemID(id,price,name,details){
+    let modal_output= `
+        <div class="modal-content">
+        <h3 style="color:orange;"> Do you really want to Edit this item?</h3>
+        <p><strong>Item Id No: ${id}</strong></p> 
+        <p><strong>Item Name : </strong><input id='update_name' type='text' class="admin-custom-input" value='${name}'></p>
+        <p><strong>Item Price : </strong><input id='update_price' type='number' class="admin-custom-input" value='${price}'></p>
+        <p><strong>Item Details : </strong><textarea id="update_detail" class="admin-custom-textarea" type="text" placeholder='${details}'></textarea></p>
+        <button class="okay" onclick="UpdateItemID(${id},${price},'${name}','${details}')">Edit</button>
+        <button class="cancel" onclick="dismissModal()">Cancel</button>
+        </div>
+    `;  
+    document.getElementById("modal-item").innerHTML = modal_output;  
+    modal_view.style.display = "block"; 
+}
+
+function UpdateItemID(id,u_price,u_name,u_details){
+    var name = document.getElementById('update_name').value;
+    var price = document.getElementById('update_price').value;
+    var detail = document.getElementById('update_detail').value;
+
+    if(name == ''){
+        name = u_name;
+
+    }if(price == ''){
+        price = u_price;
+
+    }if(detail == ''){
+        detail = u_details;
+
+    }
+
+    //alert("ID : " + id + " > " + name + " : " + price + " : " + detail);
+    options = {
+        method: 'PUT',
+        headers: {
+            'accept': 'application/json',
+            'Content-Type': 'application/json',
+            'ADMIN-KEY' : user_token
+        },
+        body:JSON.stringify({
+            "item_name": name,
+            "details": detail,
+            "price": price,
+            "image_url": "NON",
+            "item_id": id
+        }),
+        mode : "cors" 
+    }
+
+    fetch("http://127.0.0.1:5000/menu", options)
+    .then((response) => response.json())
+      .then((result) => {
+          if(result.status == 0){
+            let output =`
+            <div class="modal-content">
+              <h3 style="color:red;"> ${result.response}</h3>
+            </div>
+            `;                
+          document.getElementById("modal-item").innerHTML = output;  
+          modal_view.style.display = "block";    
+          }else{     
+            let output =`
+            <div class="modal-content">
+            <h3 style="color:green;"> ${result.response}</h3>
+            <h5 style="color:green;"> Update Details </h5>
+            <p> <strong>Item Name : </strong> <br>${result.data.item_name}</p>
+            <p> <strong>Item Description : </strong> <br>${result.data.details}</p>
+            <p> <strong>Item price : </strong> <br>${result.data.price}</p>
+            
+            <input id="refresh_btn" class="custom-input-button top-margin" type ="button" value="Refresh Page">
+            </div>
+            `;                
+          document.getElementById("modal-item").innerHTML = output;  
+          modal_view.style.display = "block";  
+          document.getElementById("refresh_btn").addEventListener("click",refresh_page)
+          }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+
+}
+
+function refresh_page(){
+    window.open("admin-home.html","_self");
+}
+
 
 document.getElementById("submit").addEventListener("click",addItems);
 
@@ -143,7 +242,7 @@ function addMenuItemsToTable(name,price,detail){
         }),
         mode: "cors" 
     }
-    fetch("http://fast-food-fast-c4.herokuapp.com/menu",options)
+    fetch("http://127.0.0.1:5000/menu",options)
     .then((response) => response.json())
       .then((result) => {
           if(result.status == 0){

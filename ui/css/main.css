@@ -390,7 +390,7 @@ ul li:hover{
     margin-bottom: 10px;
 }
 .admin-okay {    
-    width: 150px;
+    width: 100%;
     height: 40px;
     list-style: none;
     float: left;
@@ -406,6 +406,7 @@ ul li:hover{
     border-radius: 10px;
     margin-right: 5px;
 }
+
 
 .cancel {    
     width: 200px;    
