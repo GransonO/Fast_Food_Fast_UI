@@ -21,24 +21,41 @@ document.getElementById("item-by").innerHTML="by " + vendor_name;
 document.getElementById("order_now").addEventListener("click",orderItems);
 
 function orderItems(){
+    var quantity = document.getElementById("order_quantity").value;
+   
+    if(quantity < 1){
         let output =`
         <div class="modal-content">
-            <h3 style="color:orange;"> Ordering :</h3>
-            <p>Item Name: ${item_name}</p>
-            <p>Item Id: ${item_id}</p>
-            <hr>
-            <p>From : ${vendor_name}</p>
-            <button class="cancel_okay" onclick="dismissModal()">Cancel</button>
-            <button class="cancel" onclick="placeOrder(${item_id},${item_price})">Order</button>
-
+            <h3 style="color:orange;"> Quantity request</h3>
+            <p>How many ${item_name} would you like to order?</p>
         </div>
         `;              
-    document.getElementById("modal-item").innerHTML = output;
-    modal_view.style.display = "block";
+        document.getElementById("modal-item").innerHTML = output;
+        modal_view.style.display = "block";
+    }else{
+        
+            let output =`
+            <div class="modal-content">
+                <h3 style="color:orange;"> Ordering :</h3>
+                <p>Item Name: ${item_name}</p>
+                <!-- p>Item Id: ${item_id}</p -->
+                <p>Item Quantity: ${quantity} </p>
+                <p>Order Price: ${item_price * quantity} </p>
+                <hr>
+                <p>From : ${vendor_name}</p>
+                <button class="cancel_okay" onclick="dismissModal()">Cancel</button>
+                <button class="cancel" onclick="placeOrder(${item_id},${item_price * quantity},${quantity})">Order</button>
+
+            </div>
+            `;              
+        document.getElementById("modal-item").innerHTML = output;
+        modal_view.style.display = "block";
+        }
     
 }
 
-function placeOrder(item_id,item_price){
+
+function placeOrder(item_id,item_price,order_quantity){
     options = {
         method: 'POST',
         headers: {
@@ -49,7 +66,8 @@ function placeOrder(item_id,item_price){
         body:JSON.stringify({
             "order_to": vendor_id,
             "order_amount": item_price,
-            "order_detail": item_id
+            "order_quantity": order_quantity,
+            "item_id": item_id
         }),
         mode: "cors" 
     }

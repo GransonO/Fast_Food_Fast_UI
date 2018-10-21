@@ -266,6 +266,14 @@ ul li:hover{
     height: 30px;
 }
 
+.quantity-input{
+    border-radius: 10px;
+    width: 15%;
+    height: 30px;
+    font-size: 16px;
+    text-align: center;
+}
+
 .custom-input-button{
     border-radius: 10px;
     width: 70%;
