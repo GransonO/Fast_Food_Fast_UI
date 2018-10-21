@@ -2,6 +2,7 @@
 
 //Register a User
 document.getElementById("login").addEventListener("click",userLogin);
+var loading = document.getElementById("loader_bar");
 
 const modal_view = document.getElementById("modal-item");
 
@@ -27,6 +28,7 @@ function userLogin(){
 }
 
 function registerUser(username, password, type){
+    loading.style.display = "block"
     options = {
         method: 'POST',
         headers: {
@@ -57,6 +59,8 @@ function registerUser(username, password, type){
             var c_name = "Fast_Food_Cookie";
             var c_value = result.login_token;
             localStorage.setItem(c_name, c_value);  //Store token using Html Local Storage   
+            
+            loading.style.display = "none"
             if(type == "ADMIN"){
                 window.open("admin/admin-home.html","_self");
 

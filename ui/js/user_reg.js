@@ -77,7 +77,7 @@ function registerUser(username, email, phone, local, password){
               <hr>
               <h4>Your registration details</h4>
               <p><strong>Username</strong> : ${result.data.name}</p>
-              <p><strong>User ID</strong> : ${result.data.customer_id}</p>
+              <!-- p><strong>User ID</strong> : ${result.data.customer_id}</p -->
               <p><strong>Email</strong> : ${result.data.email}</p>
               <p><strong>Phone Number</strong> : ${result.data.phone_no}</p>
               <p><strong>Location</strong> : ${result.data.location}</p>

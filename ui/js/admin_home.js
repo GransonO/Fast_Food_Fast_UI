@@ -211,22 +211,34 @@ function addItems(){
     name = document.getElementById("name").value;
     price = document.getElementById("price").value;
     detail = document.getElementById("detail").value;
-
-    if(name != "" && price != "" && detail != ""){
-        addMenuItemsToTable(name,price,detail)
-    }else{        
+    category = document.getElementById("item_cat").value;
+    if(category == '#'){
+        
         let output =`
         <div class="modal-content">
-            <h3 style="color:orange;"> Please ensure all fields are filled</h3>
+            <h3 style="color:red;"> Your category is wanting human </h3>
         </div>
-        `;              
-    document.getElementById("modal-item").innerHTML = output;
-    modal_view.style.display = "block";
+            `;              
+        document.getElementById("modal-item").innerHTML = output;
+        modal_view.style.display = "block";
+    }else{
+
+        if(name != "" && price != "" && detail != ""){
+            addMenuItemsToTable(name,price,detail,category)
+        }else{        
+            let output =`
+            <div class="modal-content">
+                <h3 style="color:orange;"> Please ensure all fields are filled appropriately</h3>
+            </div>
+            `;              
+        document.getElementById("modal-item").innerHTML = output;
+        modal_view.style.display = "block";
+        }
     }
     
 }
 
-function addMenuItemsToTable(name,price,detail){
+function addMenuItemsToTable(name,price,detail,category){
     options = {
         method: 'POST',
         headers: {
@@ -238,7 +250,8 @@ function addMenuItemsToTable(name,price,detail){
             "item_name": name,
             "details": detail,
             "price": price,
-            "image_url": "NON"
+            "image_url": "NON",
+            "category": category
         }),
         mode: "cors" 
     }

@@ -13,9 +13,8 @@
         <img class="logo" src="../img/logo/logo.png" alt="logo" height="50" width="50">
     </div>
     <nav>        
-        <ul class="to-right">
-            <button class="okay">Edit</button> 
-            <button class="cancel">Delete Account</button>   
+        <ul id="action_btn" class="to-right">
+             
          </ul>
     </nav>
 <div class="order-content">
@@ -35,22 +34,17 @@
             </div>
              <div class="ordered-more-details">
                 <h4>About Me</h4>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Reprehenderit dolore deserunt incidunt. Enim atque quibusdam
-                    quae soluta quia. Quisquam alias voluptate porro dolore sapiente
-                    sed perspiciatis dolorem ut?
-                </p>
-                <h5>
-                    Granson O Oyombe
+                <p id="brief"></p>
+                <h5 id="user-name">
+                    Username
                 </h5>
             </div>
         </div>
         <hr>
         <div class="related-items">
                 <div class="profile-badges">
-                        <h4>Account Details</h4>
-                        <table>
+                        <h4 style="text-align:center;">User Performance Details</h4>
+                        <table class="performance_table">
                                 <th><h4>#</h4></th>
                                 <th><h3>Description</h3></th>
                                 <th><h3>Level</h3></th>
@@ -92,10 +86,14 @@
 
                 <div class="profile-details">
                     <h4>Account Details</h4>
-                    <input class="custom-input" type="text" name="username" value="Granson Oyombe" placeholder="Username" >
-                    <input class="custom-input" type="email" name="email" value="oyombegranson@gmail.com" placeholder="Email" >
-                    <input class="custom-input" type="Location" name="location" value="Nairobi  TRM" placeholder="Location" >
-                    <input class="custom-input" type="password" name="password" value="Granson Oyombe" placeholder="Password" >
+                    <input id="username" class="custom-input" type="text" name="username" placeholder="Username" disabled>
+                    <p></p>
+                    <input id="email" class="custom-input" type="email" name="email" placeholder="Email" disabled>
+                    <p></p>
+                    <input id="phone" class="custom-input" type="text" name="phone" placeholder="Phone Number" disabled>
+                    <p></p>
+                    <input id="local" class="custom-input" type="text" name="location" placeholder="Location" disabled>
+                   
                 </div>
         </div>
     </div>

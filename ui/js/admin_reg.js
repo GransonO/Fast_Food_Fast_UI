@@ -66,7 +66,7 @@ function registerAdmin(username, email, phone, vendor, local, password){
               <hr>
               <h4>Your registration details</h4>
               <p><strong>Username</strong> : ${result.data.name}</p>
-              <p><strong>Vendor ID</strong> : ${result.data.vendor_id}</p>
+              <!-- p><strong>Vendor ID</strong> : ${result.data.vendor_id}</p -->
               <p><strong>Email</strong> : ${result.data.email}</p>
               <p><strong>Phone Number</strong> : ${result.data.phone_no}</p>
               <p><strong>Vendor Name</strong> : ${result.data.vendor_name}</p>

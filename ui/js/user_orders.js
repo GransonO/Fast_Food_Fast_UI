@@ -12,6 +12,9 @@ var item_price = url.searchParams.get("price");
 var item_name = url.searchParams.get("name");
 var vendor_name = url.searchParams.get("vendor_name");
 var item_details = url.searchParams.get("item_details");
+var category = url.searchParams.get("category");
+
+window.addEventListener("load",getRelatedItems); //Collect all related Items
 
 document.getElementById("item-price").innerHTML="Ksh " + item_price;
 document.getElementById("item-name").innerHTML=item_name;
@@ -53,7 +56,6 @@ function orderItems(){
         }
     
 }
-
 
 function placeOrder(item_id,item_price,order_quantity){
     options = {
@@ -173,4 +175,54 @@ function getNewOrders(){
       .catch((error) => {
         console.log(error)
       });
+}
+
+function getRelatedItems(){
+    options = {
+        method: 'POST',
+        headers: {
+            'accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({
+            "item_id" : item_id,
+            "item_category": category
+        }),
+        mode: "cors" 
+    }
+
+    fetch("http://127.0.0.1:5000/related", options)
+    .then((response) => response.json())
+    .then((result) => {
+        //Processed data
+        console.log(result);        
+        let output = "";
+
+        if(result.status == 0){
+            result.related_list.forEach(function(item) {
+            output =`
+                <td>
+                    <h2 style="color:orange;"> No relate Items </h2>                        
+                </td>
+                `;
+            });
+            document.getElementById("tr").innerHTML = output;
+            
+        }else{
+            result.related_list.forEach(function(item) {
+            output +=`
+                <td>
+                    <div class="related-orders">
+                        <img class="food-img" src="../img/foods/chinese.jpg" alt="Food Item" width=300>
+                        <h3 class="text-right">Ksh ${item.price}</h3>
+                        <h3 class="food-name">${item.item_name}</h3>
+                        <a href="order.html?id=${item.item_id}&vid=${item.vendor_id.vendor_id}&price=${item.price}&name=${item.item_name}&vendor_name=${item.vendor_id.vendor_name}&item_details=${item.details}&category=${item.category}"><img class="cart" src="../img/cart.png" alt="cart" width=50></a>
+                        <h4 class="text-left"> by ${item.vendor_id.vendor_name}</h4>
+                    </div>                        
+                </td>
+                `;
+            });
+            document.getElementById("tr").innerHTML = output;
+        } 
+    })
 }

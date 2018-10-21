@@ -264,6 +264,9 @@ ul li:hover{
     border-radius: 10px;
     width: 80%;
     height: 30px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
 }
 
 .quantity-input{
@@ -549,6 +552,8 @@ ul li:hover{
     width: 50%;
     float: right;
     margin-top: -1pc;
+    height: 300px;
+    overflow: auto;
 }
 .profile-badges img{
     width: 150px;
@@ -796,4 +801,22 @@ ul li:hover{
     border: 2px #fff solid;
     border-radius: 10px;
     margin-right: 5px;
+}
+
+.loader {
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #00f715;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: 50px;
+    height: 50px;
+    animation: loading 2s linear infinite;
+    text-align: center;
+}
+
+@keyframes loading {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
