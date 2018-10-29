@@ -63,7 +63,7 @@ function registerAdmin(username, email, phone, vendor, local, password){
         mode: "cors" 
     }
 
-    fetch("http://127.0.0.1:5000/auth/signup",options)
+    fetch("https://fast-food-fast-c4.herokuapp.com/auth/signup",options)
     .then((response) => response.json())
       .then((result) => {
         loading.style.display = "none";

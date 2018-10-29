@@ -14,7 +14,7 @@ function getAllItems(){
         mode : "cors" 
     }
 
-    fetch("http://127.0.0.1:5000/menu",options)
+    fetch("https://fast-food-fast-c4.herokuapp.com/menu",options)
     .then((response) => response.json())
       .then((result) => {
           console.log(result)
@@ -100,7 +100,7 @@ function getDetailedItem(detail){
         mode : "cors" 
     }
 
-    fetch("http://127.0.0.1:5000/menu/"+ detail, options)
+    fetch("https://fast-food-fast-c4.herokuapp.com/menu/"+ detail, options)
     .then((response) => response.json())
       .then((result) => {
           console.log(result)
@@ -157,7 +157,7 @@ function getVendors(){
         mode : "cors" 
     }
 
-    fetch("http://127.0.0.1:5000/vendors", options)
+    fetch("https://fast-food-fast-c4.herokuapp.com/vendors", options)
     .then((response) => response.json())
       .then((result) => {
           console.log(result)
@@ -213,7 +213,7 @@ function getVendorItem(vendor_id){
         mode : "cors" 
     }
 
-    fetch("http://127.0.0.1:5000/vendor/"+ vendor_id, options)
+    fetch("https://fast-food-fast-c4.herokuapp.com/vendor/"+ vendor_id, options)
     .then((response) => response.json())
       .then((result) => {
           console.log(result)

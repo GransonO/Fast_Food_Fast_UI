@@ -38,7 +38,7 @@ function upload_image(){
         mode: "cors" 
     };
 
-    fetch('http://127.0.0.1:5000/image', options)
+    fetch('https://fast-food-fast-c4.herokuapp.com/image', options)
     .then((data)=>data.json())
     .then((result)=>{
         food_image_state = result.data
@@ -64,7 +64,7 @@ function getAdminItems(){
         mode : "cors" 
     }
 
-    fetch("http://127.0.0.1:5000/admin/menu",options)
+    fetch("https://fast-food-fast-c4.herokuapp.com/admin/menu",options)
     .then((response) => response.json())
       .then((result) => {
         loading.style.display = "none";
@@ -161,7 +161,7 @@ function deleteItemID(id){
         mode : "cors" 
     }
 
-    fetch("http://127.0.0.1:5000/admin/menu/"+id,options)
+    fetch("https://fast-food-fast-c4.herokuapp.com/admin/menu/"+id,options)
     .then((response) => response.json())
       .then((result) => {
         loading.style.display = "none";
@@ -236,7 +236,7 @@ function UpdateItemID(id,u_price,u_name,u_details){
         mode : "cors" 
     }
 
-    fetch("http://127.0.0.1:5000/menu", options)
+    fetch("https://fast-food-fast-c4.herokuapp.com/menu", options)
     .then((response) => response.json())
       .then((result) => {
         loading.style.display = "none";
@@ -343,7 +343,7 @@ function addMenuItemsToTable(name,price,detail,category){
         }),
         mode: "cors" 
     }
-    fetch("http://127.0.0.1:5000/menu",options)
+    fetch("https://fast-food-fast-c4.herokuapp.com/menu",options)
     .then((response) => response.json())
       .then((result) => {
           if(result.status == 0){

@@ -29,7 +29,7 @@ function itemOfInterest(){
         mode : "cors" 
     }
 
-    fetch("http://127.0.0.1:5000/menu/" + item_id,options)
+    fetch("https://fast-food-fast-c4.herokuapp.com/menu/" + item_id,options)
     .then((response) => response.json())
       .then((result) => {
             loading.style.display = "none";
@@ -128,7 +128,7 @@ function placeOrder(item_id,item_price,order_quantity){
         }),
         mode: "cors" 
     }
-    fetch("http://127.0.0.1:5000/users/orders",options)
+    fetch("https://fast-food-fast-c4.herokuapp.com/users/orders",options)
     .then((response) => response.json())
       .then((result) => {
         loading.style.display = "none";
@@ -213,7 +213,7 @@ function getNewOrders(){
         mode : "cors" 
     }
 
-    fetch("http://127.0.0.1:5000/users/orders/new",options)
+    fetch("https://fast-food-fast-c4.herokuapp.com/users/orders/new",options)
     .then((response) => response.json())
       .then((result) => {
             loading.style.display = "none";
@@ -298,7 +298,7 @@ function getRelatedItems(){
         mode: "cors" 
     }
 
-    fetch("http://127.0.0.1:5000/related", options)
+    fetch("https://fast-food-fast-c4.herokuapp.com/related", options)
     .then((response) => response.json())
     .then((result) => {
         loading.style.display = "none";

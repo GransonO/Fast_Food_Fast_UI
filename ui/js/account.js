@@ -27,7 +27,7 @@ function getAllOrders(){
         mode : "cors" 
     }
 
-    fetch("http://127.0.0.1:5000/users/orders",options)
+    fetch("https://fast-food-fast-c4.herokuapp.com/users/orders",options)
     .then((response) => response.json())
       .then((result) => {
         loading.style.display = "none";
@@ -131,7 +131,7 @@ function getUserDetails(){
         },
         mode : "cors" 
     }
-    fetch('http://127.0.0.1:5000/user/profile',options)
+    fetch('https://fast-food-fast-c4.herokuapp.com/user/profile',options)
     .then((response) => response.json())
     .then((data) => {
         loading.style.display = "none";
@@ -205,7 +205,7 @@ function UpdateUser(id){
         }),
         mode : "cors" 
     }
-    fetch("http://127.0.0.1:5000/user/profile",options)
+    fetch("https://fast-food-fast-c4.herokuapp.com/user/profile",options)
     .then((response)=> response.json())
     .then((result) => {
         loading.style.display = "none";

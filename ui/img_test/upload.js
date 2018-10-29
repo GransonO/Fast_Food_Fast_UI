@@ -12,7 +12,7 @@ function upload(){
         mode: "cors" 
     };
 
-    fetch('http://127.0.0.1:5000/image', options)
+    fetch('https://fast-food-fast-c4.herokuapp.com/image', options)
     .then((data)=>data.json())
     .then((response)=>{
         console.log(response);
@@ -30,7 +30,7 @@ function preview(){
         mode: "cors" 
     };
 
-    fetch('http://127.0.0.1:5000/image/' + image_name, options)
+    fetch('https://fast-food-fast-c4.herokuapp.com/image/' + image_name, options)
     .then((data)=>data.json())
     .then((result)=>{
         alert('This is the result : ' + result.image);
