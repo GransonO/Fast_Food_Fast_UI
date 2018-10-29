@@ -2,6 +2,7 @@
 
 //Register an Admin
 document.getElementById("admin_register").addEventListener("click",adminDetails);
+const loading = document.getElementById("loader_image");
 
 const modal_view = document.getElementById("modal-item");
 
@@ -19,15 +20,29 @@ function adminDetails(){
             registerAdmin(username, email, phone, vendor, local, pass_original)
 
         }else{
-            alert("Please ensure all fields are filled.");
+            
+            let output =`
+            <div class="modal-content">
+              <h3 style="color:red;"> Please ensure all fields are filled</h3>
+            </div>
+            `;              
+        document.getElementById("modal-item").innerHTML = output;
+        modal_view.style.display = "block";
 
         }
     }else{
-        alert("Your Passwords don't match");
+        let output =`
+        <div class="modal-content">
+          <h3 style="color:red;"> Your Passwords don't match</h3>
+        </div>
+        `;              
+    document.getElementById("modal-item").innerHTML = output;
+    modal_view.style.display = "block";
     }
 }
 
 function registerAdmin(username, email, phone, vendor, local, password){
+    loading.style.display = "block";
     options = {
         method: 'POST',
         headers: {
@@ -51,6 +66,7 @@ function registerAdmin(username, email, phone, vendor, local, password){
     fetch("http://127.0.0.1:5000/auth/signup",options)
     .then((response) => response.json())
       .then((result) => {
+        loading.style.display = "none";
           if(result.status == 0){
               let output =`
               <div class="modal-content">
@@ -81,7 +97,18 @@ function registerAdmin(username, email, phone, vendor, local, password){
           }
       })
       .catch((error) => {
+        loading.style.display = "none";
         console.log(error)
+        let modal_output =`
+        <div class="modal-content">
+          <h3 style="color:red;"> An error occurred ${error} </h3>
+          <hr>                    
+          <p> Our server may be experiencing some issues<br> Please try again later, or contact this guy:<br>
+          Granson Oyombe<br>O712 288 371 <br>(He might Help!) </p>
+        </div>
+        `;              
+          document.getElementById("modal-item").innerHTML = modal_output;
+          modal_view.style.display = "block";
       });
 }
 

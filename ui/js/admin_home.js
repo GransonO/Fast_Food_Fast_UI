@@ -1,8 +1,8 @@
 //Fetch API script for usage in the front end pages
 const user_token = localStorage.getItem("Fast_Food_Cookie");
-//document.getElementById("user_register").addEventListener("click",userDetails);
-
 const modal_view = document.getElementById("modal-item");
+const loading = document.getElementById("loader_image");
+var food_image_state = "";
 
 window.addEventListener("load",getAdminItems)
 
@@ -13,8 +13,48 @@ window.onclick = function(event) {
     }
 }
 
+function previewImage(fileInput) {
+    var file = fileInput.files[0];
+          
+        var img=document.getElementById("food_image");            
+        img.file = file;    
+        var reader = new FileReader();
+        reader.onload = (function(aImg) { 
+            return function(e) { 
+                aImg.src = e.target.result; 
+            }; 
+        })(img);
+        reader.readAsDataURL(file);
+}
+
+function upload_image(){
+    var myInput = document.getElementById('image_input');
+    var data = new FormData()
+    data.append('file', myInput.files[0])
+
+    options = {
+        method: 'POST',
+        body: data,
+        mode: "cors" 
+    };
+
+    fetch('http://127.0.0.1:5000/image', options)
+    .then((data)=>data.json())
+    .then((result)=>{
+        food_image_state = result.data
+        let modal_output =`
+        <div class="modal-content">
+        <h3 style="color:green;"> ${result.response} </h3>
+        <hr>                    
+        </div>
+        `;              
+    document.getElementById("modal-item").innerHTML = modal_output;
+    modal_view.style.display = "block";
+    });
+}
 
 function getAdminItems(){
+    loading.style.display = "block";
     options = {
         method: 'GET',
         headers: {
@@ -27,6 +67,7 @@ function getAdminItems(){
     fetch("http://127.0.0.1:5000/admin/menu",options)
     .then((response) => response.json())
       .then((result) => {
+        loading.style.display = "none";
           if(result.data.mess == 0){
               let output =`
               <div class="modal-content">
@@ -36,20 +77,36 @@ function getAdminItems(){
           document.getElementById("modal-item").innerHTML = output;
           modal_view.style.display = "block";
           }else if(result.status == 0){
-            let output =`
-            <div class="modal-content">
-              <h3 style="color:red;"> ${result.response}</h3>
-            </div>
-            `;                
-          document.getElementById("modal-item").innerHTML = output;  
-          modal_view.style.display = "block";    
+            if(result.response == 'Authorization error'){
+                //Request to login
+                let modal_output =`
+                <div class="modal-content">
+                <h3 style="color:red;"> You are not logged in </h3>
+                <hr>                    
+                <p> Please login to load this information </p>
+                <a href="../login.html"><input class="custom-input-button top-margin" type ="button" value="Login"></a>
+                </div>
+                `;              
+            document.getElementById("modal-item").innerHTML = modal_output;
+            modal_view.style.display = "block";
+
+            }else{
+                let output =`
+                <div class="modal-content">
+                  <h3 style="color:red;"> ${result.response}</h3>
+                </div>
+                `;                
+              document.getElementById("modal-item").innerHTML = output;  
+              modal_view.style.display = "block";
+            }
+    
           }else{     
             console.log(result);
             let output = `<h2>All Foods</h2>`;
             result.data.items_list.forEach(function(item) {
             output +=`
                     <div class="home-item" style="float:left;">
-                        <img class="food-img" src="../img/foods/chinese.jpg" alt="Food Item" width=250>
+                        <img class="food-img" src="data:image/png;base64,${item.image_url}" alt="Food Item" width=250>
                         <h3 class="text-right">Ksh ${item.price}</h3>
                         <h3 class="food-name">${item.item_name}</h3>
                         <p>${item.details}.</p>
@@ -63,7 +120,18 @@ function getAdminItems(){
           }
       })
       .catch((error) => {
+        loading.style.display = "none";
         console.log(error)
+        let modal_output =`
+        <div class="modal-content">
+          <h3 style="color:red;"> An error occurred ${error} </h3>
+          <hr>                    
+          <p> Our server may be experiencing some issues<br> Please try again later, or contact this guy:<br>
+          Granson Oyombe<br>O712 288 371 <br>(He may Help!) </p>
+        </div>
+        `;              
+          document.getElementById("modal-item").innerHTML = modal_output;
+          modal_view.style.display = "block";
       });
 }
 
@@ -83,6 +151,7 @@ function confirmDeleteItemID(id,price,name,details){
 }
 
 function deleteItemID(id){
+    loading.style.display = "block";
     options = {
         method: 'DELETE',
         headers: {
@@ -95,6 +164,7 @@ function deleteItemID(id){
     fetch("http://127.0.0.1:5000/admin/menu/"+id,options)
     .then((response) => response.json())
       .then((result) => {
+        loading.style.display = "none";
           if(result.status == 0){
             let output =`
             <div class="modal-content">
@@ -109,6 +179,7 @@ function deleteItemID(id){
           }
       })
       .catch((error) => {
+        loading.style.display = "none";
         console.log(error)
       });
 
@@ -146,8 +217,8 @@ function UpdateItemID(id,u_price,u_name,u_details){
         detail = u_details;
 
     }
+    loading.style.display = "block";
 
-    //alert("ID : " + id + " > " + name + " : " + price + " : " + detail);
     options = {
         method: 'PUT',
         headers: {
@@ -168,6 +239,7 @@ function UpdateItemID(id,u_price,u_name,u_details){
     fetch("http://127.0.0.1:5000/menu", options)
     .then((response) => response.json())
       .then((result) => {
+        loading.style.display = "none";
           if(result.status == 0){
             let output =`
             <div class="modal-content">
@@ -194,6 +266,7 @@ function UpdateItemID(id,u_price,u_name,u_details){
           }
       })
       .catch((error) => {
+        loading.style.display = "none";
         console.log(error)
       });
 
@@ -224,7 +297,22 @@ function addItems(){
     }else{
 
         if(name != "" && price != "" && detail != ""){
-            addMenuItemsToTable(name,price,detail,category)
+            if( food_image_state == ""){
+
+                let output =`
+                <div class="modal-content">
+                    <h3 style="color:orange;"> Your food needs an Image!</h3>
+                    <hr>
+                    <p>People need to see what they are buying you know!</p>
+                </div>
+                `;              
+            document.getElementById("modal-item").innerHTML = output;
+            modal_view.style.display = "block";
+
+            }else{
+                addMenuItemsToTable(name,price,detail,category)
+
+            }
         }else{        
             let output =`
             <div class="modal-content">
@@ -250,7 +338,7 @@ function addMenuItemsToTable(name,price,detail,category){
             "item_name": name,
             "details": detail,
             "price": price,
-            "image_url": "NON",
+            "image_url": food_image_state,
             "category": category
         }),
         mode: "cors" 
@@ -285,4 +373,22 @@ window.onclick = function(event) {
     if (event.target == modal_view) {
         modal_view.style.display = "none";
     }
+}
+document.getElementById("logout_btn").addEventListener("click", signOut);
+
+function signOut(){
+
+    //Allow logout
+    var c_name = "Fast_Food_Cookie";
+    localStorage.removeItem(c_name) //Remove item from the local storage
+
+    let output = ` 
+        <div class="modal-content">
+        <h3 style="color:green;"> You have been logged out successfully </h3>
+        <a href="../index.html"><button class="custom-input-button"> Okay </button>
+        </div>
+    `;
+    modal_view.innerHTML = output;
+    modal_view.style.display = "block";
+
 }

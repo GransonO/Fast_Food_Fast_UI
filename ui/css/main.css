@@ -17,7 +17,10 @@ select{
 
 .data { 
     position: absolute;
-    left: 90%;
+    left: 80%;
+    border: solid orange 2px;
+    border-radius: 10px;
+    text-align: center;
 }
 
 .login {
@@ -146,6 +149,7 @@ ul li{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     border: 2px #fff solid;
     border-radius: 10px;
+    cursor: pointer;
     margin-right: 5px;
 }
 
@@ -267,6 +271,7 @@ ul li:hover{
     font-size: 16px;
     text-align: center;
     font-weight: bold;
+    text-align: center;
 }
 
 .quantity-input{
@@ -279,7 +284,7 @@ ul li:hover{
 
 .custom-input-button{
     border-radius: 10px;
-    width: 70%;
+    width: 60%;
     height: 30px;
     background-color: rgba(53, 143, 1, 0.7);  
     line-height: 20px;
@@ -293,15 +298,7 @@ ul li:hover{
 }
 
 .custom-input-button:hover {
-    border-radius: 10px;
-    width: 70%;
-    height: 30px;
     background-color: rgba(243, 198, 0, 0.7);  
-    line-height: 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 15px; 
-    font-weight:100;
     color: rgb(0, 0, 0);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     border: 2px #fff solid;
@@ -347,14 +344,26 @@ ul li:hover{
 .My-Items h2 {
     padding-left: 30px;
 }
-.new-item img{
+.food-image{
     width: 350px;
     height: 200px;
     border-radius: 10%;
 }
+.image-upload{
+    width: 60px;
+    height: 40px;
+    position: absolute;
+    right: 5%;
+    cursor: pointer;
+
+}
+.image-upload:hover {
+    width: 80px;
+    height: 50px;
+}
 .admin-custom-input{
     border-radius: 10px;
-    width: 80%;
+    width: 90%;
     height: 40px;
     background-color: rgba(255, 255, 255, 0.795);
     border: 2px solid rgb(255, 255, 255, o.5);
@@ -732,7 +741,7 @@ ul li:hover{
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color : #fff; 
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
@@ -803,20 +812,47 @@ ul li:hover{
     margin-right: 5px;
 }
 
-.loader {
-    border: 10px solid #f3f3f3;
-    border-top: 10px solid #00f715;
-    border-radius: 50%;
+.logout {
     position: absolute;
-    top: 50%;
+    top: 95%;
+    left: 2%;
+    z-index: 1;
+    border-radius: 10px;
+    height: 40px;
+    background-color: red;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+}
+
+.logout:hover {
+    position: absolute;
+    top: 95%;
+    left: 2%;
+    z-index: 1;
+    border-radius: 10px;
+    height: 40px;
+    background-color: #fff;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    color: red;
+}
+
+.loader {
+    position: absolute;
+    top: 30%;
     right: 50%;
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    display: none;
+    height: 100px;
     animation: loading 2s linear infinite;
     text-align: center;
 }
 
 @keyframes loading {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% { width:70px; height: 80px;}
+    50% { width:100px; height: 110px;}
+    100% { width:70px; height: 80px; }
 }

@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="to-left">
-        <img src="../img/logo/logo.png" alt="logo" height="50" width="50">
+        <img src="../img/pig.png" alt="logo" height="50" width="50">
     </div>
     <nav>        
         <ul class="to-right">
@@ -23,8 +23,11 @@
         <h2>My Foods</h2>
     </div>
     <div class="comments new-item">
-                <h2>Add New Item</h2>                
-                <img src="../img/foods/chinese.jpg" alt="New Image">
+                <h2>Add New Item</h2>               
+                    <input id="image_input" type="file"  accept="image/*" class="admin-custom-input" onchange="previewImage(this)"> 
+                    <img id="image_upload" src="../img/camera.png" class="image-upload" onclick="upload_image()">
+                <img id="food_image" src="../img/foods/chinese.jpg" class="food-image" alt="New Image">
+                
                 <br> 
                 <br> 
                 <select id="item_cat" class="admin-custom-input">
@@ -32,7 +35,6 @@
                         <option value="Breakfast">Breakfast</option>
                         <option value="Lunch">Lunch</option>
                         <option value="Dinner">Dinner</option>
-                        <option value="Munchies">Munchies</option>
                         <option value="Drinks">Drinks</option>
                 </select>              
                 <input id="name" class="admin-custom-input" type="text" name="Food" placeholder="Food Name">
@@ -44,10 +46,12 @@
                 <button id="submit" class="admin-okay">Submit</button>
         </div>
 </div>
-    <div id="modal-item" class="modal">        
-        
-    </div>
-    <script src="../js/admin_home.js"></script>
+<div id="modal-item" class="modal">        
+    
+</div>
+<img id="loader_image" class="loader" src="../img/pig.png">
+<button id="logout_btn" class="logout">Log Me Out</button>
+<script src="../js/admin_home.js"></script>
 
 </body>
 </html>

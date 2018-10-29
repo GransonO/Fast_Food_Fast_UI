@@ -9,16 +9,16 @@
 </head>
 <body>
     <div class="to-left">
-        <img src="../img/logo/logo.png" alt="logo" height="50" width="50">
+        <img src="../img/pig.png" alt="logo" height="50" width="50">
     </div>
     <nav>        
         <ul class="to-right">
-            <li>Breakfast</li> 
-            <li>Lunch</li> 
-            <li>Dinner</li> 
-            <li>Drinks</li> 
-            <li>Vendors</li> 
-            <li><a href="account.html">account</a></li>     
+            <li id="food_class" value="Breakfast" onclick="getOption('Breakfast')">Breakfast</li> 
+            <li id="food_class" value="Lunch" onclick="getOption('Lunch')">Lunch</li> 
+            <li id="food_class" value="Dinner" onclick="getOption('Dinner')">Dinner</li> 
+            <li id="food_class" value="Drinks" onclick="getOption('Drinks')">Drinks</li> 
+            <li id="food_class" value="Vendors" onclick="getVendors()">Vendors</li> 
+            <li id="food_class" value="Vendors" onclick="getOption('account')">Account</li>     
          </ul>
     </nav>
 <div class="home-content">
@@ -31,6 +31,7 @@
 <div id="modal-item" class="modal">    
         
 </div>
+<img id="loader_image" class="loader" src="../img/pig.png">
 <script src="../js/home.js"></script>
 </body>
 </html>
