@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Order Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
+</head>
+<body>
+<div class="to-left">
+        <img class="logo" src="../img/pig.png" alt="logo" height="50" width="50">
+    </div>
+    <nav>        
+        <ul id="action_btn" class="to-right">
+             
+         </ul>
+    </nav>
+<div class="order-content">
+    <div class="order-history">
+            <h2>Orders History</h2> 
+            <h2>Since : </h2>
+            <input class="custom-input" type="date" name="since" id="since"> 
+        <table id="all-table">            
+            <!-- All results here -->
+         </table>
+    </div>
+    <div class="ordered-item">
+        <h2>Users Profile</h2>
+        <div class="profile">
+            <div class="to-left">
+                <img class="profile-img" src="../img/users/Granson.jpg" alt="ordered item">    
+            </div>
+             <div class="ordered-more-details">
+                <h4>About Me</h4>
+                <p id="brief"></p>
+                <h5 id="user-name">
+                    Username
+                </h5>
+            </div>
+        </div>
+        <hr>
+        <div class="related-items">
+                <div class="profile-badges">
+                        <h4 style="text-align:center;">User Performance Details</h4>
+                        <table class="performance_table">
+                                <th><h4>#</h4></th>
+                                <th><h3>Description</h3></th>
+                                <th><h3>Level</h3></th>
+                                <tr>
+                                    <td>
+                                        <h4>1.</h4>
+                                    </td>
+                                    <td>
+                                        <h4>Good Burger eater</h4>
+                                    </td>
+                                    <td>
+                                        <img src="../img/stars.png" alt="">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>2.</h4>
+                                    </td>
+                                    <td>
+                                        <h4>Good Burger eater</h4>
+                                    </td>
+                                    <td>
+                                        <img src="../img/stars.png" alt="">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>3.</h4>
+                                    </td>
+                                    <td>
+                                        <h4>Good Burger eater</h4>
+                                    </td>
+                                    <td>
+                                        <img src="../img/stars.png" alt="">
+                                    </td>
+                                </tr>
+                        </table>
+                    </div>
+
+                <div class="profile-details">
+                    <h4>Account Details</h4>
+                    <input id="username" class="custom-input" type="text" name="username" placeholder="Username" disabled>
+                    <p></p>
+                    <input id="email" class="custom-input" type="email" name="email" placeholder="Email" disabled>
+                    <p></p>
+                    <input id="phone" class="custom-input" type="text" name="phone" placeholder="Phone Number" disabled>
+                    <p></p>
+                    <input id="local" class="custom-input" type="text" name="location" placeholder="Location" disabled>
+                   
+                </div>
+        </div>
+    </div>
+</div>
+<div id="modal-item" class="modal">    
+        
+</div>
+<button id="logout_btn" class="logout">Log Me Out</button>
+<img id="loader_image" class="loader" src="../img/pig.png">
+<script src="../js/account.js"></script>
+
+</body>
+</html>
