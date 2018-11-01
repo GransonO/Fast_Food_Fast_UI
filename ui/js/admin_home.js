@@ -28,6 +28,7 @@ function previewImage(fileInput) {
 }
 
 function upload_image(){
+    loading.style.display = "block";
     var myInput = document.getElementById('image_input');
     var data = new FormData()
     data.append('file', myInput.files[0])
@@ -41,6 +42,7 @@ function upload_image(){
     fetch('https://fast-food-fast-c4.herokuapp.com/image', options)
     .then((data)=>data.json())
     .then((result)=>{
+        loading.style.display = "none";
         food_image_state = result.data
         let modal_output =`
         <div class="modal-content">
