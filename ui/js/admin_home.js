@@ -3,6 +3,7 @@ const user_token = localStorage.getItem("Fast_Food_Cookie");
 const modal_view = document.getElementById("modal-item");
 const loading = document.getElementById("loader_image");
 var food_image_state = "";
+var food_image_upload = "";
 
 window.addEventListener("load",getAdminItems)
 
@@ -20,6 +21,7 @@ function previewImage(fileInput) {
         img.file = file;    
         var reader = new FileReader();
         reader.onload = (function(aImg) { 
+            food_image_upload = "Something here!";
             return function(e) { 
                 aImg.src = e.target.result; 
             }; 
@@ -28,7 +30,7 @@ function previewImage(fileInput) {
 }
 
 function upload_image(){
-    if(food_image_state == ""){
+    if(food_image_upload == ""){
 
         let modal_output =`
         <div class="modal-content">
