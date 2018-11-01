@@ -28,31 +28,45 @@ function previewImage(fileInput) {
 }
 
 function upload_image(){
-    loading.style.display = "block";
-    var myInput = document.getElementById('image_input');
-    var data = new FormData()
-    data.append('file', myInput.files[0])
+    if(food_image_state == ""){
 
-    options = {
-        method: 'POST',
-        body: data,
-        mode: "cors" 
-    };
-
-    fetch('https://fast-food-fast-c4.herokuapp.com/image', options)
-    .then((data)=>data.json())
-    .then((result)=>{
-        loading.style.display = "none";
-        food_image_state = result.data
         let modal_output =`
         <div class="modal-content">
-        <h3 style="color:green;"> ${result.response} </h3>
+        <h3 style="color:orange;"> You haven't selected an image yet! </h3>
         <hr>                    
         </div>
         `;              
     document.getElementById("modal-item").innerHTML = modal_output;
     modal_view.style.display = "block";
-    });
+
+    }else{
+
+        loading.style.display = "block";
+        var myInput = document.getElementById('image_input');
+        var data = new FormData()
+        data.append('file', myInput.files[0])
+    
+        options = {
+            method: 'POST',
+            body: data,
+            mode: "cors" 
+        };
+    
+        fetch('https://fast-food-fast-c4.herokuapp.com/image', options)
+        .then((data)=>data.json())
+        .then((result)=>{
+            loading.style.display = "none";
+            food_image_state = result.data
+            let modal_output =`
+            <div class="modal-content">
+            <h3 style="color:green;"> ${result.response} </h3>
+            <hr>                    
+            </div>
+            `;              
+        document.getElementById("modal-item").innerHTML = modal_output;
+        modal_view.style.display = "block";
+        });
+    }
 }
 
 function getAdminItems(){
