@@ -7,29 +7,28 @@ const all_logic = {
     ,
      //Test for get methods
     fetchGet : () => 
-        axios.get('http://127.0.0.1:5000/test')
+        axios.get('https://fast-food-fast-c4.herokuapp.com/test')
         .then(response => response.data)
         .catch(error => 'error')
         ,
     //Test for put method
     fetchPut : () => 
-        axios.put('http://127.0.0.1:5000/test')
+        axios.put('https://fast-food-fast-c4.herokuapp.com/test')
         .then(response => response.data)
         .catch(error => 'error')
         ,
     //Test for post method
     fetchPost : () => 
-        axios.post('http://127.0.0.1:5000/test')
+        axios.post('https://fast-food-fast-c4.herokuapp.com/test')
         .then(response => response.data)
         .catch(error => 'error')
         ,
     //Test for delete method
     fetchDelete : () => 
-        axios.delete('http://127.0.0.1:5000/test')
+        axios.delete('https://fast-food-fast-c4.herokuapp.com/test')
         .then(response => response.data)
         .catch(error => 'error')
     
 }
 
 module.exports = all_logic;
-
