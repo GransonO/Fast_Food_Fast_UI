@@ -54,3 +54,15 @@ function previewImage(fileInput) {
         })(img);
         reader.readAsDataURL(file);
 }
+
+function getImage(){
+    var filename = 'lunch3.jpg'
+    var image =  get_that_image(filename);
+    var img=document.getElementById("myImage");
+    img.src = image;
+}
+
+async function get_that_image(filename){
+    const response = await fetch('http://127.0.0.1:5000/image/' + filename)
+    return await response.blob();
+}
